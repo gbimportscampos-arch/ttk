@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Radar Viral TikTok Shop & GMV Max</title>
+  <style>
+    :root {
+      --bg-dark: #0B0F19;
+      --surface: #111827;
+      --surface-elevated: #1F2937;
+      --surface-card: #151D2E;
+      --border: #2D3748;
+      --border-subtle: #1E293B;
+      --brand-emerald: #10B981;
+      --brand-emerald-light: #34D399;
+      --brand-cyan: #06B6D4;
+      --brand-cyan-glow: #22D3EE;
+      --tiktok-red: #FE2C55;
+      --status-yellow: #F59E0B;
+      --status-red: #EF4444;
+      --status-blue: #3B82F6;
+      --text-primary: #F9FAFB;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Top App Header */
+    header {
+      background: rgba(17, 24, 39, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .app-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .app-logo {
+      width: 34px;
+      height: 34px;
+      background: linear-gradient(135deg, var(--tiktok-red), var(--brand-emerald));
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 4px 12px rgba(254, 44, 85, 0.3);
+    }
+
+    .brand-titles h1 {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      color: var(--text-primary);
+    }
+
+    .brand-titles span {
+      font-size: 10px;
+      color: var(--brand-emerald-light);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--brand-emerald);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .badge-chip {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: var(--brand-emerald-light);
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Navigation Container */
+    main {
+      flex: 1;
+      padding: 16px;
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+      padding-bottom: 90px;
+    }
+
+    /* Screen Sections */
+    .screen-section {
+      display: none;
+      animation: fadeIn 0.25s ease-in-out;
+    }
+
+    .screen-section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Card styling */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .card-elevated {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 12px;
+      margin-top: 10px;
+    }
+
+    /* Hero & GMV Max Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(31, 41, 55, 0.8) 0%, rgba(17, 24, 39, 0.9) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .title-row h2 {
+      font-size: 17px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.45;
+      margin-bottom: 12px;
+    }
+
+    /* Criteria Accordion */
+    .criteria-box {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-elevated);
+      overflow: hidden;
+    }
+
+    .criteria-header {
+      padding: 8px 12px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--status-yellow);
+    }
+
+    .criteria-body {
+      display: none;
+      padding: 10px 12px;
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .criteria-body.open {
+      display: block;
+    }
+
+    .criteria-body p {
+      margin-bottom: 6px;
+    }
+
+    /* Search Bar Component */
+    .search-container {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .search-input-wrapper {
+      position: relative;
+      flex: 1;
+    }
+
+    .search-input-wrapper input {
+      width: 100%;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px 12px 38px;
+      color: var(--text-primary);
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-input-wrapper input:focus {
+      border-color: var(--brand-emerald);
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .btn {
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: none;
+      font-weight: 700;
+      font-size: 12px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--brand-emerald);
+      color: #000;
+    }
+
+    .btn-primary:active {
+      transform: scale(0.97);
+      background: var(--brand-emerald-light);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+    }
+
+    .btn-outline:active {
+      border-color: var(--brand-emerald);
+      color: var(--brand-emerald-light);
+    }
+
+    /* Filter Row Horizontal Scroll */
+    .filter-section {
+      margin: 14px 0 10px 0;
+    }
+
+    .filter-label {
+      font-size: 9px;
+      font-weight: 800;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .scroll-row {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      scrollbar-width: none;
+    }
+
+    .scroll-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .chip {
+      white-space: nowrap;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--surface-elevated);
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s;
+    }
+
+    .chip.active {
+      background: rgba(16, 185, 129, 0.2);
+      border-color: var(--brand-emerald);
+      color: var(--brand-emerald-light);
+    }
+
+    .chip.active-sort {
+      background: rgba(6, 182, 212, 0.2);
+      border-color: var(--brand-cyan);
+      color: var(--brand-cyan-glow);
+    }
+
+    /* Product Card */
+    .product-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 12px;
+      transition: border-color 0.2s;
+    }
+
+    .product-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .product-info h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .product-cat {
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    .score-badge {
+      min-width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1.5px solid var(--brand-emerald);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 14px;
+      color: var(--brand-emerald-light);
+    }
+
+    .score-badge small {
+      font-size: 7px;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+    }
+
+    .gmv-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      margin-top: 8px;
+    }
+
+    .gmv-confirmed {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34D399;
+      border: 1px solid #10B981;
+    }
+
+    .gmv-indication {
+      background: rgba(245, 158, 11, 0.2);
+      color: #FBBF24;
+      border: 1px solid #F59E0B;
+    }
+
+    .gmv-unverified {
+      background: rgba(239, 68, 68, 0.2);
+      color: #F87171;
+      border: 1px solid #EF4444;
+    }
+
+    .evidence-box {
+      background: var(--surface-elevated);
+      border-radius: 8px;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 11px;
+      line-height: 1.4;
+    }
+
+    .evidence-box span {
+      display: block;
+      font-size: 8px;
+      font-weight: 800;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 2px;
+      letter-spacing: 0.5px;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 10px;
+      background: #0D131F;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .metric-col small {
+      font-size: 9px;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    .metric-col strong {
+      font-size: 12px;
+      color: var(--text-primary);
+    }
+
+    .metric-col .price-green {
+      color: var(--brand-emerald-light);
+    }
+
+    .product-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .product-actions .btn {
+      flex: 1;
+      font-size: 11px;
+    }
+
+    /* KPI Grid on Dashboard */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .kpi-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+    }
+
+    .kpi-card small {
+      font-size: 10px;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .kpi-card h4 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    /* Video Card */
+    .video-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+
+    .video-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+
+    .video-stats {
+      display: flex;
+      gap: 12px;
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin: 8px 0;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: rgba(16, 185, 129, 0.95);
+      backdrop-filter: blur(8px);
+      color: #000;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 10px 18px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      z-index: 999;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      pointer-events: none;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Bottom Navigation Bar */
+    nav.bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 23, 42, 0.98);
+      border-top: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      display: flex;
+      justify-content: space-around;
+      padding: 8px 6px;
+      z-index: 100;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    .nav-item .nav-icon {
+      font-size: 18px;
+    }
+
+    .nav-item.active {
+      color: var(--brand-emerald-light);
+    }
+
+    .nav-item.active .nav-icon {
+      transform: scale(1.1);
+    }
+
+    /* Modal Script Detail */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-sheet {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-radius: 20px 20px 0 0;
+      width: 100%;
+      max-width: 600px;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 20px;
+      box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
+      animation: slideUp 0.3s ease-out;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header -->
+  <header>
+    <div class="app-brand">
+      <div class="app-logo">⚡</div>
+      <div class="brand-titles">
+        <h1>Radar Viral TikTok</h1>
+        <span><div class="live-dot"></div> Inteligência EUA & Brasil</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="badge-chip">🟢 Firestore Ativo</div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main>
+
+    <!-- SCREEN 1: RADAR GMV MAX -->
+    <section id="screen-gmv" class="screen-section active">
+      <div class="card hero-banner">
+        <div class="title-row">
+          <h2>🚀 RADAR GMV MAX</h2>
+          <span style="font-size: 9px; background: rgba(16,185,129,0.2); color: var(--brand-emerald-light); padding: 3px 6px; border-radius: 4px; font-weight: bold;">OFICIAL & AUDITADO</span>
+        </div>
+        <p class="hero-desc">Encontre produtos e oportunidades com informações verificáveis de GMV Max.</p>
+
+        <!-- Explicação dos 3 Níveis -->
+        <div class="criteria-box">
+          <div class="criteria-header" onclick="toggleCriteria()">
+            <span>ℹ️ Como funciona a auditoria dos 3 níveis?</span>
+            <span id="criteria-arrow">▼</span>
+          </div>
+          <div id="criteria-body" class="criteria-body">
+            <p><strong style="color:#10B981">🟢 GMV Max Confirmado:</strong> Listado em campanhas oficiais com subsídio e registro no Seller Center.</p>
+            <p><strong style="color:#F59E0B">🟡 Indício de GMV Max:</strong> Aumento súbito de impressões, cupom turbinado ou aceleração de afiliados.</p>
+            <p><strong style="color:#EF4444">🔴 Não Verificado:</strong> Sem evidência pública detectada. Dados auditados e transparentes.</p>
+          </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="gmv-search-input" placeholder="Digite o nome do produto" onkeyup="handleSearchKeyUp(event)">
+          </div>
+          <button class="btn btn-primary" onclick="performSearch()">Pesquisar</button>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 10px; color: var(--brand-cyan-glow);">
+          <span id="results-count">Exibindo produtos disponíveis</span>
+          <span style="color: var(--text-muted)">Compatível com API TikTok Shop</span>
+        </div>
+      </div>
+
+      <!-- Filtros de GMV Max -->
+      <div class="filter-section">
+        <span class="filter-label">FILTRAR POR STATUS GMV MAX:</span>
+        <div class="scroll-row">
+          <div class="chip active" onclick="setGmvFilter('ALL', this)">Todos</div>
+          <div class="chip" onclick="setGmvFilter('CONFIRMED', this)">🟢 GMV Max Confirmado</div>
+          <div class="chip" onclick="setGmvFilter('INDICATION', this)">🟡 Indício de GMV Max</div>
+          <div class="chip" onclick="setGmvFilter('UNVERIFIED', this)">🔴 Não verificado</div>
+        </div>
+      </div>
+
+      <!-- Filtros de Ordenação -->
+      <div class="filter-section">
+        <span class="filter-label">ORDENAR & CLASSIFICAR:</span>
+        <div class="scroll-row">
+          <div class="chip" onclick="setSortFilter('COMMISSION', this)">💰 Alta comissão</div>
+          <div class="chip" onclick="setSortFilter('SALES', this)">🔥 Mais vendas</div>
+          <div class="chip" onclick="setSortFilter('RATING', this)">⭐ Melhor avaliação</div>
+        </div>
+      </div>
+
+      <!-- Lista de Produtos -->
+      <div id="products-list"></div>
+    </section>
+
+    <!-- SCREEN 2: DASHBOARD -->
+    <section id="screen-dashboard" class="screen-section">
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <small>Vídeos Auditados EUA</small>
+          <h4>48</h4>
+        </div>
+        <div class="kpi-card">
+          <small>Oportunidades BR</small>
+          <h4>24</h4>
+        </div>
+        <div class="kpi-card">
+          <small>GMV Max Confirmados</small>
+          <h4 style="color: var(--brand-emerald-light)">8</h4>
+        </div>
+        <div class="kpi-card">
+          <small>Monitores Ativos</small>
+          <h4 style="color: var(--brand-cyan-glow)">5</h4>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="title-row">
+          <h2>🔥 Top Oportunidades da Semana</h2>
+        </div>
+        <p class="hero-desc">Produtos com tração comprovada nos EUA e estoque no Brasil prontos para afiliação.</p>
+        <button class="btn btn-primary" style="width: 100%;" onclick="navigateTo('screen-gmv')">Ver Radar GMV Max Completo</button>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: VÍDEOS VIRAIS -->
+    <section id="screen-videos" class="screen-section">
+      <div class="card">
+        <div class="title-row">
+          <h2>🎥 Radar de Vídeos Virais EUA</h2>
+        </div>
+        <p class="hero-desc">Engenharia reversa dos vídeos que mais vendem no TikTok Shop americano.</p>
+      </div>
+      <div id="videos-list"></div>
+    </section>
+
+    <!-- SCREEN 4: BIBLIOTECA -->
+    <section id="screen-library" class="screen-section">
+      <div class="card">
+        <div class="title-row">
+          <h2>📁 Minha Biblioteca & Salvos</h2>
+        </div>
+        <p class="hero-desc">Produtos, roteiros e análises sincronizados com a nuvem Firestore.</p>
+      </div>
+      <div id="saved-items-list"></div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <div class="nav-item active" onclick="switchNav('screen-gmv', this)">
+      <div class="nav-icon">🚀</div>
+      <span>GMV Max</span>
+    </div>
+    <div class="nav-item" onclick="switchNav('screen-dashboard', this)">
+      <div class="nav-icon">📊</div>
+      <span>Dashboard</span>
+    </div>
+    <div class="nav-item" onclick="switchNav('screen-videos', this)">
+      <div class="nav-icon">🎥</div>
+      <span>Vídeos</span>
+    </div>
+    <div class="nav-item" onclick="switchNav('screen-library', this)">
+      <div class="nav-icon">📁</div>
+      <span>Salvos</span>
+    </div>
+  </nav>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">Notificação</div>
+
+  <!-- Modal Script Analysis -->
+  <div id="modal-script" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-sheet" onclick="event.stopPropagation()">
+      <div class="title-row">
+        <h2 id="modal-title">Roteiro Adaptado para o Brasil</h2>
+        <span style="cursor: pointer; font-size: 18px;" onclick="closeModalDirect()">✕</span>
+      </div>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <script>
+    // DATA SEED (COMPATÍVEL COM MODELS DO ANDROID)
+    const PRODUCTS = [
+      {
+        id: "prod_mini_aspirador",
+        name: "Mini Aspirador Portátil Recarregável 120W de Alta Sucção",
+        category: "Casa & Ferramentas",
+        usTrendName: "Car & Desktop Vacuum Trend",
+        gmvLevel: "CONFIRMED",
+        evidence: "Campanha oficial TikTok Shop Brasil com subsídio de tráfego de R$ 0,15/clique e destaque na categoria de utilidades.",
+        sourceName: "TikTok Shop Seller Center",
+        lastUpdated: "Hoje",
+        priceBrl: 49.90,
+        commission: "18% (R$ 8,98/venda)",
+        commissionPercent: 18,
+        score: 96,
+        sales: 4200,
+        rating: 4.9,
+        store: "Import Brasil Express"
+      },
+      {
+        id: "prod_escova_alisadora",
+        name: "Escova Alisadora Multifuncional Termostática com Íons Negativos",
+        category: "Beleza & Cuidados",
+        usTrendName: "Hair Styler Transformation",
+        gmvLevel: "CONFIRMED",
+        evidence: "Incentivo oficial de GMV Max com cupom relâmpago de 25% custeado pela plataforma TikTok.",
+        sourceName: "TikTok Creator Center",
+        lastUpdated: "Há 2 horas",
+        priceBrl: 89.90,
+        commission: "22% (R$ 19,77/venda)",
+        commissionPercent: 22,
+        score: 93,
+        sales: 7800,
+        rating: 4.8,
+        store: "Glow Hair Distribuidora"
+      },
+      {
+        id: "prod_dispenser_automatico",
+        name: "Dispenser Automático de Sabonete com Sensor Infravermelho",
+        category: "Cozinha & Banheiro",
+        usTrendName: "Touchless Soap Gadget",
+        gmvLevel: "INDICATION",
+        evidence: "Pico de visualizações em 48h e múltiplos afiliados com comissão turbinada detectada.",
+        sourceName: "Auditoria de Catálogo",
+        lastUpdated: "Ontem",
+        priceBrl: 39.90,
+        commission: "15% (R$ 5,98/venda)",
+        commissionPercent: 15,
+        score: 82,
+        sales: 1950,
+        rating: 4.6,
+        store: "ShopTech Utilidades"
+      },
+      {
+        id: "prod_triturador_alho",
+        name: "Mini Processador Elétrico de Alimentos USB sem Fio",
+        category: "Cozinha Prática",
+        usTrendName: "Garlic Chopper Viral Kitchen",
+        gmvLevel: "CONFIRMED",
+        evidence: "Selo de produto elegível a impulsionamento orgânico e suporte de cupons ativos.",
+        sourceName: "API Oficial TikTok",
+        lastUpdated: "Hoje",
+        priceBrl: 34.90,
+        commission: "20% (R$ 6,98/venda)",
+        commissionPercent: 20,
+        score: 91,
+        sales: 12500,
+        rating: 4.9,
+        store: "PraticLar Distribuição"
+      },
+      {
+        id: "prod_luminaria_lua",
+        name: "Luminária da Lua 3D Touch 16 Cores com Controle e Suporte",
+        category: "Decoração & Quarto",
+        usTrendName: "Room Aesthetic Moon Lamp",
+        gmvLevel: "UNVERIFIED",
+        evidence: "Vendas orgânicas consistentes, porém sem subsídio ativo no momento da auditoria.",
+        sourceName: "Métricas Públicas",
+        lastUpdated: "Há 3 dias",
+        priceBrl: 59.90,
+        commission: "12% (R$ 7,18/venda)",
+        commissionPercent: 12,
+        score: 68,
+        sales: 850,
+        rating: 4.5,
+        store: "Decora Brasil"
+      }
+    ];
+
+    const VIRAL_VIDEOS = [
+      {
+        id: "vid_1",
+        title: "Limpando o teclado e carro com o mini aspirador em 5 segundos",
+        creator: "@cleangadgets.us",
+        views: "4.8M",
+        likes: "320K",
+        product: "Mini Aspirador Portátil 120W",
+        classification: "VIRAL",
+        script: "Pare de passar vergonha com sujeira no carro! Esse mini aspirador cabe no porta-luvas e suga até terra seca. Clique no link e aproveite o frete grátis."
+      },
+      {
+        id: "vid_2",
+        title: "Testei a escova no cabelo crespo sem chapinha antes",
+        creator: "@hairtips_usa",
+        views: "7.1M",
+        likes: "590K",
+        product: "Escova Alisadora Multifuncional",
+        classification: "VIRAL",
+        script: "Olha como estava o meu cabelo antes de passar essa escova... Ela aquece em 30 segundos e não queima a raiz. Já garantiu a sua?"
+      }
+    ];
+
+    // STATE MANAGEMENT
+    let currentGmvFilter = "ALL";
+    let currentSortFilter = null;
+    let currentSearchTerm = "";
+    let savedIds = JSON.parse(localStorage.getItem("radar_saved_ids") || "[]");
+
+    // INIT
+    document.addEventListener("DOMContentLoaded", () => {
+      renderProducts();
+      renderVideos();
+      renderSavedItems();
+    });
+
+    // CRITERIA ACCORDION
+    function toggleCriteria() {
+      const body = document.getElementById("criteria-body");
+      const arrow = document.getElementById("criteria-arrow");
+      if (body.classList.contains("open")) {
+        body.classList.remove("open");
+        arrow.textContent = "▼";
+      } else {
+        body.classList.add("open");
+        arrow.textContent = "▲";
+      }
+    }
+
+    // SEARCH
+    function handleSearchKeyUp(event) {
+      if (event.key === "Enter") {
+        performSearch();
+      }
+    }
+
+    function performSearch() {
+      const val = document.getElementById("gmv-search-input").value;
+      currentSearchTerm = val.trim().toLowerCase();
+      renderProducts();
+      showToast(`Pesquisa realizada: "${val || 'Todos'}"`);
+    }
+
+    // FILTERS
+    function setGmvFilter(level, element) {
+      currentGmvFilter = level;
+      element.parentElement.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+      element.classList.add("active");
+      renderProducts();
+    }
+
+    function setSortFilter(sort, element) {
+      if (currentSortFilter === sort) {
+        currentSortFilter = null;
+        element.classList.remove("active-sort");
+      } else {
+        currentSortFilter = sort;
+        element.parentElement.querySelectorAll(".chip").forEach(c => c.classList.remove("active-sort"));
+        element.classList.add("active-sort");
+      }
+      renderProducts();
+    }
+
+    // RENDER PRODUCTS
+    function renderProducts() {
+      const container = document.getElementById("products-list");
+      let list = PRODUCTS.filter(p => {
+        const matchesSearch = !currentSearchTerm || 
+          p.name.toLowerCase().includes(currentSearchTerm) || 
+          p.category.toLowerCase().includes(currentSearchTerm) ||
+          p.usTrendName.toLowerCase().includes(currentSearchTerm);
+
+        const matchesLevel = (currentGmvFilter === "ALL") || (p.gmvLevel === currentGmvFilter);
+
+        return matchesSearch && matchesLevel;
+      });
+
+      // Sorting
+      if (currentSortFilter === "COMMISSION") {
+        list.sort((a, b) => b.commissionPercent - a.commissionPercent);
+      } else if (currentSortFilter === "SALES") {
+        list.sort((a, b) => b.sales - a.sales);
+      } else if (currentSortFilter === "RATING") {
+        list.sort((a, b) => b.rating - a.rating);
+      } else {
+        list.sort((a, b) => b.score - a.score);
+      }
+
+      document.getElementById("results-count").textContent = `${list.length} produtos encontrados`;
+
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div class="card" style="text-align: center; padding: 30px 16px;">
+            <p style="font-size: 24px; margin-bottom: 8px;">🔍</p>
+            <h3 style="font-size: 14px; margin-bottom: 4px;">Nenhum produto encontrado</h3>
+            <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px;">Experimente buscar por "aspirador", "escova" ou limpe os filtros.</p>
+            <button class="btn btn-outline" onclick="resetSearchAndFilters()">Limpar Filtros</button>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = list.map(prod => {
+        const isSaved = savedIds.includes(prod.id);
+        let badgeHtml = "";
+        if (prod.gmvLevel === "CONFIRMED") {
+          badgeHtml = `<span class="gmv-badge gmv-confirmed">🟢 GMV Max Confirmado</span>`;
+        } else if (prod.gmvLevel === "INDICATION") {
+          badgeHtml = `<span class="gmv-badge gmv-indication">🟡 Indício de GMV Max</span>`;
+        } else {
+          badgeHtml = `<span class="gmv-badge gmv-unverified">🔴 Não Verificado</span>`;
+        }
+
+        return `
+          <div class="product-card">
+            <div class="product-header">
+              <div class="product-info">
+                <h3>${prod.name}</h3>
+                <span class="product-cat">Categoria: ${prod.category}</span>
+              </div>
+              <div class="score-badge">
+                ${prod.score}
+                <small>Score</small>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 6px;">
+              ${badgeHtml}
+              <span style="font-size: 10px; color: var(--text-muted);">Ref EUA: ${prod.usTrendName}</span>
+            </div>
+
+            <div class="evidence-box">
+              <span>Evidência Técnica Auditada:</span>
+              ${prod.evidence}
+              <div style="display: flex; justify-content: space-between; margin-top: 6px; font-size: 9px; color: var(--text-muted);">
+                <strong style="color: var(--status-blue)">Fonte: ${prod.sourceName}</strong>
+                <span>Atualizado: ${prod.lastUpdated}</span>
+              </div>
+            </div>
+
+            <div class="metrics-grid">
+              <div class="metric-col">
+                <small>Preço Médio BR</small>
+                <strong class="price-green">R$ ${prod.priceBrl.toFixed(2)}</strong>
+              </div>
+              <div class="metric-col">
+                <small>Comissão Afiliado</small>
+                <strong>${prod.commission}</strong>
+              </div>
+              <div class="metric-col">
+                <small>Vendas Estimadas</small>
+                <strong style="color: var(--brand-cyan-glow)">${prod.sales.toLocaleString()} un.</strong>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 10px; margin-top: 8px; color: var(--text-secondary); padding: 0 4px;">
+              <span>Fornecedor: <strong>${prod.store}</strong></span>
+              <span style="color: var(--status-yellow)">★ ${prod.rating}</span>
+            </div>
+
+            <div class="product-actions">
+              <button class="btn btn-outline" onclick="toggleSaveProduct('${prod.id}', '${prod.name.replace(/'/g, "\\'")}')">
+                ${isSaved ? '✓ Salvo na Nuvem' : '🔖 Salvar Oportunidade'}
+              </button>
+              <button class="btn btn-primary" onclick="openScriptModal('${prod.name.replace(/'/g, "\\'")}', '${prod.usTrendName}')">
+                Ver Roteiros & Vídeos →
+              </button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    // RESET
+    function resetSearchAndFilters() {
+      document.getElementById("gmv-search-input").value = "";
+      currentSearchTerm = "";
+      currentGmvFilter = "ALL";
+      currentSortFilter = null;
+      document.querySelectorAll(".chip").forEach(c => c.classList.remove("active", "active-sort"));
+      document.querySelector(".scroll-row .chip").classList.add("active");
+      renderProducts();
+    }
+
+    // SAVE PRODUCT
+    function toggleSaveProduct(id, name) {
+      if (savedIds.includes(id)) {
+        savedIds = savedIds.filter(item => item !== id);
+        showToast(`Removido dos salvos: ${name.slice(0, 25)}...`);
+      } else {
+        savedIds.push(id);
+        showToast(`Salvo no Firestore: ${name.slice(0, 25)}...`);
+      }
+      localStorage.setItem("radar_saved_ids", JSON.stringify(savedIds));
+      renderProducts();
+      renderSavedItems();
+    }
+
+    // RENDER VIDEOS
+    function renderVideos() {
+      const container = document.getElementById("videos-list");
+      container.innerHTML = VIRAL_VIDEOS.map(v => `
+        <div class="video-card">
+          <div class="video-header">
+            <div>
+              <span class="gmv-badge gmv-confirmed" style="margin-bottom: 6px;">${v.classification}</span>
+              <h3 style="font-size: 13px; font-weight: 700;">${v.title}</h3>
+              <small style="color: var(--text-muted); font-size: 10px;">Criador: ${v.creator} • Produto: ${v.product}</small>
+            </div>
+          </div>
+          <div class="video-stats">
+            <span>👁️ ${v.views} views</span>
+            <span>❤️ ${v.likes} likes</span>
+          </div>
+          <div class="evidence-box" style="margin-top: 6px;">
+            <span>Gancho de Atenção (3s):</span>
+            "${v.script}"
+          </div>
+          <button class="btn btn-outline" style="width: 100%; margin-top: 10px;" onclick="openScriptModal('${v.product}', '${v.title}')">
+            Copiar Estrutura & Roteiro BR
+          </button>
+        </div>
+      `).join("");
+    }
+
+    // RENDER SAVED ITEMS
+    function renderSavedItems() {
+      const container = document.getElementById("saved-items-list");
+      const savedProds = PRODUCTS.filter(p => savedIds.includes(p.id));
+      if (savedProds.length === 0) {
+        container.innerHTML = `
+          <div class="card" style="text-align: center; padding: 24px;">
+            <p style="color: var(--text-muted); font-size: 12px;">Nenhum produto salvo na biblioteca ainda.</p>
+            <button class="btn btn-primary" style="margin-top: 10px;" onclick="navigateTo('screen-gmv')">Explorar Radar GMV</button>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = savedProds.map(p => `
+        <div class="card" style="margin-bottom: 8px;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <h4 style="font-size: 12px; font-weight: 700;">${p.name}</h4>
+              <small style="color: var(--brand-emerald-light);">Comissão: ${p.commission}</small>
+            </div>
+            <button class="btn btn-outline" style="padding: 4px 8px; font-size: 10px;" onclick="toggleSaveProduct('${p.id}', '${p.name}')">Remover</button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    // MODAL
+    function openScriptModal(productName, trendRef) {
+      document.getElementById("modal-title").textContent = `Roteiro: ${productName.slice(0, 30)}...`;
+      document.getElementById("modal-content").innerHTML = `
+        <div style="margin-top: 10px;">
+          <div class="card-elevated">
+            <span style="font-size: 9px; font-weight: 800; color: var(--status-yellow);">ÂNGULO 1: ALTA CURIOSIDADE & DEMONSTRAÇÃO</span>
+            <p style="font-size: 12px; margin-top: 6px; line-height: 1.4;">
+              <strong>Gancho (0-3s):</strong> "Eu duvido você adivinhar quanto paguei nisso aqui no TikTok..."<br>
+              <strong>Texto na Tela:</strong> "Chegou em 2 dias e resolveu isso!"<br>
+              <strong>Desenvolvimento:</strong> Mostra o problema real (sujeira acumulada / tempo perdido) e a solução imediata em 10 segundos.<br>
+              <strong>Chamada de Ação (CTA):</strong> "Clica no carrinho amarelo aqui embaixo antes que acabe o estoque com desconto."
+            </p>
+          </div>
+          <button class="btn btn-primary" style="width: 100%; margin-top: 12px;" onclick="copyScriptText()">
+            📋 Copiar Roteiro Completo
+          </button>
+        </div>
+      `;
+      document.getElementById("modal-script").classList.add("open");
+    }
+
+    function closeModal(e) {
+      document.getElementById("modal-script").classList.remove("open");
+    }
+
+    function closeModalDirect() {
+      document.getElementById("modal-script").classList.remove("open");
+    }
+
+    function copyScriptText() {
+      navigator.clipboard.writeText("Gancho: Eu duvido você adivinhar quanto paguei nisso aqui no TikTok...\nClica no carrinho amarelo aqui embaixo antes que acabe!");
+      showToast("Roteiro copiado para a área de transferência!");
+      closeModalDirect();
+    }
+
+    // NAVIGATION
+    function switchNav(screenId, element) {
+      document.querySelectorAll(".nav-item").forEach(item => item.classList.remove("active"));
+      element.classList.add("active");
+      navigateTo(screenId);
+    }
+
+    function navigateTo(screenId) {
+      document.querySelectorAll(".screen-section").forEach(sec => sec.classList.remove("active"));
+      const target = document.getElementById(screenId);
+      if (target) {
+        target.classList.add("active");
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // TOAST
+    function showToast(msg) {
+      const toast = document.getElementById("toast");
+      toast.textContent = msg;
+      toast.classList.add("show");
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2500);
+    }
+  </script>
+</body>
+</html>
